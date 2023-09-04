@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('monthlytaxes', function (Blueprint $table) {
+        Schema::create('datacontacts', function (Blueprint $table) {
             $table->id();
-            $table->string('taxe_day_month');
-            $table->integer('taxe_month');
-            $table->integer('amount');
-            $table->unsignedBigInteger('annualtaxe_id'); 
-            $table->foreign('annualtaxe_id')->references('id')->on('annualtaxes')->cascadeOnDelete();
+            $table->string('name');
+            $table->string('phone');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('monthlytaxes');
+        Schema::dropIfExists('datacontacts');
     }
 };

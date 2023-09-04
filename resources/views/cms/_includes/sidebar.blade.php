@@ -63,9 +63,8 @@
 
                     <ul id="side-menu">
                         <li>
-                            <a href="index.html">
+                            <a href="{{ route('cms.home') }}">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
                                 <span> الرئيسية </span>
                             </a>
                         </li>
@@ -116,8 +115,9 @@
                                         <i class="fas fa-plus"></i>
                                         <a href="{{ route('payments.create') }}">اضافة دفعة</a>
                                     </li>
-                                    <li class="menu-title mt-2">دروس الطلاب</li>
 
+
+                                    <li class="menu-title mt-2">دروس الطلاب</li>
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-tasks"></i>
                                         <a href="{{ route('lessons.index') }}">عرض دروس</a>
@@ -125,6 +125,15 @@
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-plus"></i>
                                         <a href="{{ route('lessons.create') }}">اضافة دروس</a>
+                                    </li>
+                                    <li class="menu-title mt-2">الوصولات</li>
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-tasks"></i>
+                                        <a href="{{ route('receipts.index') }}">عرض الوصول</a>
+                                    </li>
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="{{ route('receipts.create') }}">اضافة وصل</a>
                                     </li>
                                 </ul>
                             </div>
@@ -159,7 +168,7 @@
                         </li>
                         <li>
                             <a href="#trainer" data-bs-toggle="collapse">
-                                <i class="fas fa-user"></i>
+                                <i class=" fas fa-user-nurse"></i>
                                 <span> المدربين </span>
                                 <span class="menu-arrow"></span>
                             </a>
@@ -270,6 +279,33 @@
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-plus"></i>
                                         <a href="{{ route('monthlytaxes.create') }}">اضافة الضرائب الشهرية</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="menu-title mt-2">بيانات اضافية</li>
+                        <li>
+                            <a href="{{ route('cms.dataSchool') }}" class="text-primary">
+                                <i class=" fas fa-passport me-1"></i>
+                                <span>بيانات المدرسة</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#datacontacts" class="text-success" data-bs-toggle="collapse">
+                                <i class="fas fa-phone-square-alt"></i>
+                                <span>بيانات الاتصال</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="datacontacts">
+                                <ul class="nav-second-level">
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-tasks"></i>
+                                        <a href="{{ route('datacontacts.index') }}">عرض البيانات</a>
+                                    </li>
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="{{ route('datacontacts.create') }}">اضافة بيانات</a>
                                     </li>
                                 </ul>
                             </div>

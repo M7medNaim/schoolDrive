@@ -74,19 +74,19 @@ class AnnualtaxeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Annualtaxe $annualtaxe)
+    public function edit(string $id)
     {
+        $annualtaxe = Annualtaxe::findOrFail($id);
         return response()->view('cms.annualtaxe.edit', compact('annualtaxe'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Annualtaxe $annualtaxe)
+    public function update(Request $request, string $id)
     {
-
         $validator = Validator($request->all(), [
-            'taxe_year' => 'required|date',
+            'taxe_year' => 'required',
             'amount' => 'required|numeric',
         ], [
             'taxe_year.required' => 'يجب إدخال سنة الضريبة',
@@ -97,9 +97,12 @@ class AnnualtaxeController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'message' => $validator->errors()->first()
+                'message' => $validator->getMessageBag()->first()
             ], Response::HTTP_BAD_REQUEST);
         }
+
+        $annualtaxe = Annualtaxe::findOrFail($id);
+
         if (!$annualtaxe) {
             return response()->json([
                 'message' => 'الضريبة غير موجودة'
@@ -108,7 +111,7 @@ class AnnualtaxeController extends Controller
 
         $annualtaxe->taxe_year = $request->input('taxe_year');
         $annualtaxe->amount = $request->input('amount');
-        $isSaved = $annualtaxe->update();
+        $isSaved = $annualtaxe->save();
 
         if ($isSaved) {
             return response()->json([
@@ -125,22 +128,20 @@ class AnnualtaxeController extends Controller
      * Remove the specified resource from storage.
      * 
      */
-    public function destroy($id)
+    public function destroy(string $id)
     {
-        dd($id);
-        
         $annualtaxe = Annualtaxe::findOrFail($id);
         try {
             $annualtaxe->delete();
             return response()->json([
-                'status'=> true ,
-                'message' => 'success delete'
-            ]);
+                'status' => true,
+                'message' => 'تم الحذف بنجاح '
+            ], 204);
         } catch (\Exception $e) {
             return response()->json([
-                'status'=> false ,
+                'status' => false,
                 'message' => $e->getMessage(),
-            ]);
+            ], 500);
         }
     }
 

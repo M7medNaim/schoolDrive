@@ -103,7 +103,7 @@
             })
             .then(function (response) {
                 toastr.success("تم تسجيل الدخول بنجاح");
-                window.location.href = '/cms/users'
+                window.location.href = '/cms/home'
             })
             .catch(function (error) {
                 toastr.error("هناك خطأ في كلمة المرور أو اسم المستخدم");

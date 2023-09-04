@@ -83,17 +83,18 @@ class MonthlytaxeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Monthlytaxe $monthlytaxe)
+    public function edit(string $id)
     {
 
         $annualtaxes = Annualtaxe::all();
+        $monthlytaxe = Monthlytaxe::findOrFail($id);
         return response()->view('cms.monthlytaxe.edit', compact('monthlytaxe', 'annualtaxes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Monthlytaxe $monthlytaxe)
+    public function update(Request $request, string $id)
     {
         $validator = Validator($request->all(), [
             'annualtaxe_id' => 'required|exists:annualtaxes,id',
@@ -113,7 +114,7 @@ class MonthlytaxeController extends Controller
         ]);
 
         if (!$validator->fails()) {
-
+            $monthlytaxe = Monthlytaxe::findOrFail($id);
             if ($monthlytaxe) {
                 $monthlytaxe->annualtaxe_id = $request->input('annualtaxe_id');
                 $monthlytaxe->amount = $request->input('amount');
@@ -144,8 +145,20 @@ class MonthlytaxeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Monthlytaxe $monthlytaxe)
+    public function destroy($id)
     {
-        $monthlytaxe->delete();
+        $monthlytaxe = Monthlytaxe::findOrFail($id);
+        try {
+            $monthlytaxe->delete();
+            return response()->json([
+                'status' => true,
+                'message' => 'تم الحذف بنجاح '
+            ], 204);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => false,
+                'message' => $e->getMessage(),
+            ], 500);
+        }
     }
 }
