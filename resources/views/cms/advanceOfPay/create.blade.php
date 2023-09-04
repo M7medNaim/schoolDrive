@@ -44,7 +44,7 @@
                                 <label for="amount" class="form-label">المبلغ<span
                                         class="text-danger">*</span></label>
                                 <input type="number" name="amount" parsley-trigger="change" required
-                                    placeholder="تاريخ السلفة" class="form-control" id="amount" />
+                                    placeholder="المبلغ" class="form-control" style="direction: rtl;" id="amount" />
                             </div>
                         </div>
                     </div>

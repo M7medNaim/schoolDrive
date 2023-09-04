@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('id_number')->unique();
-            $table->bigInteger('phone');
+            $table->string('phone');
             $table->date('date_of_birth');
             $table->enum('type_of_license', ['ملاكي عادي'  , 'تجاري', 'ملاكي أتوماتيك']);
             $table->enum('number_of_examination', ['1'  , '2', '3', '4']);

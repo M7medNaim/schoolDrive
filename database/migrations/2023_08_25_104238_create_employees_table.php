@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('id_number')->unique();
-            $table->bigInteger('phone');
+            $table->string('phone');
             $table->bigInteger('salary');
             $table->timestamps();
         });

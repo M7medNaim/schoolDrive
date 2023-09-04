@@ -32,26 +32,27 @@ class AnnualtaxeController extends Controller
     public function store(Request $request)
     {
         $validator = Validator($request->all(), [
-            'taxe_year' => 'required|numeric',
+            'taxe_year' => 'required|numeric|unique:annualtaxes,taxe_year',
             'amount' => 'required|numeric',
         ], [
             'taxe_year.required' => 'يجب إدخال سنة الضريبة',
-            'taxe_year.date' => 'تاريخ انتهاء الضريبة غير صحيح',
+            'taxe_year.numeric' => 'سنة الضريبة يجب أن تكون رقمًا',
+            'taxe_year.unique' => 'سنة الضريبة موجودة بالفعل',
             'amount.required' => 'يجب إدخال مبلغ الضريبة',
             'amount.numeric' => 'مبلغ الضريبة يجب أن يكون رقمًا',
         ]);
-
+        
         if ($validator->fails()) {
             return response()->json([
                 'message' => $validator->getMessageBag()->first()
             ], Response::HTTP_BAD_REQUEST);
         }
-
+        
         $annualtaxe = new Annualtaxe();
         $annualtaxe->taxe_year = $request->input('taxe_year');
         $annualtaxe->amount = $request->input('amount');
         $isSaved = $annualtaxe->save();
-
+        
         if ($isSaved) {
             return response()->json([
                 'message' => 'تم التخزين بنجاح',
@@ -61,6 +62,7 @@ class AnnualtaxeController extends Controller
                 'message' => 'هناك مشكلة في التخزين'
             ], Response::HTTP_BAD_REQUEST);
         }
+        
     }
 
     /**

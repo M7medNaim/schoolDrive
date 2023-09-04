@@ -54,7 +54,7 @@
                                     <label for="salary" class="form-label">الراتب<span
                                             class="text-danger">*</span></label>
                                     <input type="number" name="salary" parsley-trigger="change" required
-                                        placeholder="الراتب" class="form-control" value="{{ $employee->salary }}" id="salary" />
+                                        placeholder="الراتب" class="form-control" style="direction: rtl;" value="{{ $employee->salary }}" id="salary" />
                                 </div>
                             </div>
                         </div>

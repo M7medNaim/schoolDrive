@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->bigInteger('id_number');
-            $table->bigInteger('phone');
+            $table->string('phone');
             $table->bigInteger('driving_license');
             $table->bigInteger('training_number'); 
             $table->bigInteger('license_degree'); 

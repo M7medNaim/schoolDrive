@@ -25,6 +25,6 @@ class HomeController extends Controller
             $successPercentage = 0;
         }
         $successFraction = number_format($successPercentage, 2);
-        return response()->view('cms.home', compact('studentCount', 'trainerCount', 'employeeCount', 'carCount', 'successFraction'));
+        return response()->view('cms.home', compact('studentCount', 'trainerCount', 'employeeCount', 'carCount', 'successFraction' , 'passedStudents'));
     }
 }

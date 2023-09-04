@@ -43,7 +43,7 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $employee->name }}</td>
                                     <td>{{ $employee->id_number }}</td>
-                                    <td>{{ str_pad($employee->phone, 10, '0', STR_PAD_LEFT) }}</td>
+                                    <td>{{ $employee->phone }}</td>
                                     <td>{{ $employee->salary }}</td>
                                     <td>
                                         <a href="{{ route('employees.edit', $employee->id) }}">

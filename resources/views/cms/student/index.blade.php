@@ -24,13 +24,23 @@
                     <p class="text-muted font-14 mb-3">
                         عرض كل الطلاب المسجللين في المدرسة
                     </p>
-                    <div class="btns d-flex justify-content-center mb-3">
-                        <a href="{{ route('students.create') }}"
-                        class="d-flex justify-content-center bg-info text-white p-1 d-block w-25 m-auto">اضافة طالب جديد</a>
-                    <a href="{{ route('lessons.create') }}"
-                        class="d-flex justify-content-center bg-success text-white p-1 d-block w-25 m-auto">اضافة درس جديد</a>
-                    <a href="{{ route('payments.create') }}"
-                        class="d-flex justify-content-center bg-secondary text-white p-1 d-block w-25 m-auto">اضافة دفعة جديدة</a>
+                    <div class="row mb-3">
+                        <div class="col-3">
+                              <a href="{{ route('students.create') }}"
+                        class="w-100 d-flex justify-content-center bg-info text-white p-1 d-block w-25 m-auto">اضافة طالب جديد</a>
+                        </div>
+                        <div class="col-3">
+                            <a href="{{ route('lessons.create') }}"
+                        class="w-100 d-flex justify-content-center bg-success text-white p-1 d-block w-25 m-auto">اضافة درس جديد</a>
+                        </div>
+                        <div class="col-3">
+                            <a href="{{ route('payments.create') }}"
+                            class="w-100 d-flex justify-content-center bg-secondary text-white p-1 d-block w-25 m-auto">اضافة دفعة جديدة</a>
+                        </div>
+                        <div class="col-3">
+                            <a href="{{ route('receipts.create') }}"
+                        class=" w-100 d-flex justify-content-center bg-warning text-white p-1 d-block w-25 m-auto">اضافة وصل جديد</a>
+                        </div>
                     </div>
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                         <thead>
@@ -39,10 +49,10 @@
                                 <th>اسم الطالب</th>
                                 <th>رقم الجوال</th>
                                 <th>نوع الرخصة</th>
+                                <th>نظام الرخصة</th>
                                 <th>عدد الفحوصات</th>
                                 <th>التطبيق</th>
                                 <th>النتيجة</th>
-                                <th>نظام الرخصة</th>
                                 <th>عدد الدروس</th>
                                 <th>المبلغ المتفق عليه</th>
                                 <th>الاعدادات</th>
@@ -53,46 +63,47 @@
                                 <tr id="student_{{ $student->id }}">
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ str_pad($student->phone, 10, '0', STR_PAD_LEFT) }}</td>
+                                    <td>{{ $student->phone }}</td>
                                     <td>
                                         {{ $student->type_of_license }}
                                     </td>
                                     <td>
+                                        @if ($student->license_system == 'مقاولة')
+                                            <span
+                                                class="text-warning fw-bolder fs-5">{{ $student->license_system }}</span>
+                                        @elseif($student->license_system == 'بالدرس')
+                                            <span
+                                                class="text-dark fs-5">{{ $student->license_system }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if ($student->number_of_examination == '1')
-                                            <span class="bg-success badge fs-5">الفحص الأول</span>
+                                            <span class="text-success  fs-5">الفحص الأول</span>
                                         @elseif($student->number_of_examination == '2')
-                                            <span class="bg-black badge fs-5">الفحص الثاني</span>
+                                            <span class="text-success  fs-5">الفحص الثاني</span>
                                         @elseif($student->number_of_examination == '3')
-                                            <span class="bg-warning badge text-dark fs-5">الفحص الثالث</span>
+                                            <span class="text-danger fs-5">الفحص الثالث</span>
                                         @elseif($student->number_of_examination == '4')
-                                            <span class="bg-danger badge fs-5">الفحص الرابع</span>
+                                            <span class="text-danger  fs-5">الفحص الرابع</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($student->application == 'شفوي')
                                             <span
-                                                class="bg-success p-1 text-white border border-dark border-1 ">{{ $student->application }}</span>
+                                                class="text-danger ">{{ $student->application }}</span>
                                         @elseif($student->application == 'تحريري')
                                             <span
-                                                class="bg-secondary p-1 text-white border border-dark border-1">{{ $student->application }}</span>
+                                                class="text-secondary">{{ $student->application }}</span>
                                         @endif
                                     </td>
+                                    
                                     <td>
                                         @if ($student->result == 'ناجح')
-                                            <span class="bg-success badge fs-5">{{ $student->result }}</span>
+                                            <span class="text-success fs-5">{{ $student->result }}</span>
                                         @elseif($student->result == 'راسب')
-                                            <span class="bg-danger badge fs-5">{{ $student->result }}</span>
+                                            <span class="text-danger fs-5">{{ $student->result }}</span>
                                         @elseif($student->result == 'لم يقدم')
-                                            <span class="bg-secondary badge fs-5">{{ $student->result }}</span>
-                                        @endif
-                                    </td>
-                                    <td>
-                                        @if ($student->license_system == 'مقاولة')
-                                            <span
-                                                class="bg-success p-1 text-white fs-5">{{ $student->license_system }}</span>
-                                        @elseif($student->license_system == 'بالدرس')
-                                            <span
-                                                class="bg-primary p-1 text-white fs-5">{{ $student->license_system }}</span>
+                                            <span class="text-secondary fs-5">{{ $student->result }}</span>
                                         @endif
                                     </td>
                                     <td>{{ $student->lessons->count() }}</td>
