@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone');
             $table->bigInteger('driving_license');
             $table->bigInteger('training_number'); 
-            $table->bigInteger('license_degree'); 
+            $table->string('license_degree'); 
             $table->date('license_expiration_date'); 
             $table->timestamps();
         });

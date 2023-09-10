@@ -36,7 +36,7 @@ class TrainerController extends Controller
             'phone' => 'required|numeric',
             'driving_license' => 'required|numeric',
             'training_number' => 'required|numeric',
-            'license_degree' => 'required|numeric',
+            'license_degree' => 'required|string',
             'license_expiration_date' => 'required|date',
         ], [
             'name.required' => 'يرجى إدخال الاسم',
@@ -51,7 +51,6 @@ class TrainerController extends Controller
             'training_number.required' => 'يرجى إدخال رقم التدريب',
             'training_number.numeric' => 'رقم التدريب يجب أن يكون رقمًا',
             'license_degree.required' => 'يرجى إدخال درجة الرخصة',
-            'license_degree.numeric' => 'درجة الرخصة يجب أن تكون رقمًا',
             'license_expiration_date.required' => 'يرجى إدخال تاريخ انتهاء الرخصة',
             'license_expiration_date.date' => 'تاريخ انتهاء الرخصة يجب أن يكون تاريخًا صحيحًا',
         ]);
@@ -110,7 +109,7 @@ class TrainerController extends Controller
             'phone' => 'required|numeric',
             'driving_license' => 'required|numeric',
             'training_number' => 'required|numeric',
-            'license_degree' => 'required|numeric',
+            'license_degree' => 'required|string',
             'license_expiration_date' => 'required|date',
         ], [
             'name.required' => 'يرجى إدخال الاسم',

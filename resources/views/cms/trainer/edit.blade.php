@@ -67,7 +67,7 @@
                             <div class="mb-3">
                                 <label for="license_degree" class="form-label">درجة الرخصة <span
                                         class="text-danger">*</span></label>
-                                <input type="number" name="license_degree" parsley-trigger="change" required
+                                <input type="text" name="license_degree" parsley-trigger="change" required
                                     placeholder="درجة الرخصة" value="{{ $trainer->license_degree }}" style="direction: rtl" class="form-control" id="license_degree" />
                             </div>
                         </div>

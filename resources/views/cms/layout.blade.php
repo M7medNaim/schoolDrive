@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>مدرسة الكفاح لتعليم قيادة السيارات</title>
+    <title>مدرسة الريفي لتعليم قيادة السيارات</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -123,25 +123,25 @@
                         <img src="{{ asset('cms/assets/images/logo-light.png') }}" alt="" height="16">
                     </span>
                 </a>
-                <a href="index.html" class="logo logo-dark text-center">
+                {{-- <a href="index.html" class="logo logo-dark text-center">
                     <span class="logo-sm">
                         <img src="{{ asset('cms/assets/images/logo-sm.png') }}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
                         <img src="{{ asset('cms/assets/images/logo-dark.png') }}" alt="" height="16">
                     </span>
-                </a>
+                </a> --}}
             </div>
 
             <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
                 <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
+                    <button class="button-menu-mobile disable-btn waves-effect" id="sideBarBtn">
                         <i class="fe-menu"></i>
                     </button>
                 </li>
 
                 <li>
-                    <h4 class="page-title-main">مدرسة الكفاح لتعليم قيادة السيارات</h4>
+                    <h4 class="page-title-main">مدرسة الريفي لتعليم السياقة النظرة وقيادة السيارات </h4>
                 </li>
 
             </ul>
@@ -177,7 +177,7 @@
                         <div class="col-md-6">
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> &copy; مدرسة الكفاح
+                            </script> &copy; مدرسة الريفي لتعليم قيادة السيارات
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,13 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- axios js CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    
+    <script>
+        let sideBarBtn = document.querySelector('#sideBarBtn');
+        sideBarBtn.onclick  =_=>{
+            let leftSideMenu = document.querySelector('.left-side-menu');
+            leftSideMenu.style.display = "block";
+        }
+    </script>
     @yield('scripts')
     @stack('script')
 

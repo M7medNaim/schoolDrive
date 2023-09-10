@@ -20,27 +20,27 @@
                             <tbody>
                                 <tr>
                                     <td style="width: 35%;">العنوان</td>
-                                    <td><span></span></td>
+                                    <td><span>مدرسة الكرمل - مقابل سلطة الترخيص</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">المدير المهني</td>
-                                    <td><span></span></td>
+                                    <td><span>محمد جميل الريفي</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">رقم الجوال</td>
-                                    <td><span></span></td>
+                                    <td><span>0599726263</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">رقم الهاتف</td>
-                                    <td><span></span></td>
+                                    <td><span>082865446</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">رقم المدرسة</td>
-                                    <td><span></span></td>
+                                    <td><span>42</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">رقم المعهد</td>
-                                    <td><span></span></td>
+                                    <td><span>8</span></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 35%;">ادارة مهنية</td>
