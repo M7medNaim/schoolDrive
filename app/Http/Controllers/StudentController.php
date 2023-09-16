@@ -44,6 +44,7 @@ class StudentController extends Controller
             'application' => 'required|string|in:شفوي,تحريري',
             'result' => 'required|string|in:لم يقدم,ناجح,راسب',
             'license_system' => 'required|string|in:بالدرس,مقاولة',
+            'student_status' => 'required|in:active,inactive',
 
         ], [
             'student_name.required' => 'اسم الطالب مطلوب',
@@ -66,6 +67,8 @@ class StudentController extends Controller
             'result.in' => 'نتيجة الطالب غير صحيحة',
             'license_system.required' => 'نظام الرخصة مطلوب',
             'license_system.in' => 'نظام الرخصة غير صحيح',
+            'student_status.required' => 'حالة الطالب مطلوبة',
+            'student_status.in' => 'حالة الطالب غير صحيحة',
         ]);
         if (!$validator->fails()) {
             $student = new Student();
@@ -79,6 +82,7 @@ class StudentController extends Controller
             $student->application = $request->input('application');
             $student->result = $request->input('result');
             $student->license_system = $request->input('license_system');
+            $student->student_status = $request->input('student_status');
             $isSaved = $student->save();
             if ($isSaved) {
                 return response()->json([
@@ -127,6 +131,7 @@ class StudentController extends Controller
             'application' => 'required|string|in:شفوي,تحريري',
             'result' => 'required|string|in:لم يقدم,ناجح,راسب',
             'license_system' => 'required|string|in:بالدرس,مقاولة',
+            'student_status' => 'required|in:active,inactive',
 
         ], [
             'student_name.required' => 'اسم الطالب مطلوب',
@@ -146,6 +151,8 @@ class StudentController extends Controller
             'result.in' => 'نتيجة الطالب غير صحيحة',
             'license_system.required' => 'نظام الرخصة مطلوب',
             'license_system.in' => 'نظام الرخصة غير صحيح',
+            'student_status.required' => 'حالة الطالب مطلوبة',
+            'student_status.in' => 'حالة الطالب غير صحيحة',
         ]);
         if (!$validator->fails()) {
             $student->name = $request->input('student_name');
@@ -158,6 +165,8 @@ class StudentController extends Controller
             $student->application = $request->input('application');
             $student->result = $request->input('result');
             $student->license_system = $request->input('license_system');
+            $student->student_status = $request->input('student_status');
+            
 
             if ($oldIdNumber != $request->input('id_number')) {
                 $validator = Validator($request->all(), [

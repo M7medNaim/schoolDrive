@@ -58,17 +58,28 @@
                         </div>
                         <div class="col-3">
                             {{-- signals_receipt --}}
-                            <div class="form-check mb-2 form-check-success">
-                                <input class="form-check-input" type="checkbox" value="0" id="signals_receipt">
-                                <label class="form-check-label" for="signals_receipt">وصل الاشارات</label>
+                            <div class="mb-3">
+                                <label for="heard" class="form-label">وصل الاشارات:</label>
+                                <select id="signals_receipt" class="form-select" required="">
+                                    <option value="notPay" selected>لم يدفع</option> 
+                                    <option value="firstSignal">الاول</option> 
+                                    <option value="secondSignal">التاني</option>
+                                    <option value="thirdSignal">الثالث</option>
+                                    <option value="fourthSignal">الرابع</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-3">
                             {{-- test_receipt --}}
-                            <div class="form-check mb-2 form-check-success">
-                                <input class="form-check-input" type="checkbox" value="0" id="test_receipt"
-                                    name="test_receipt">
-                                <label class="form-check-label" for="test_receipt">وصل الاختبار</label>
+                            <div class="mb-3">
+                                <label for="heard" class="form-label">وصل الاختبار:</label>
+                                <select id="test_receipt" class="form-select" required="">
+                                    <option value="notPay" selected>لم يدفع</option>
+                                    <option value="firstTest">الاختبار الاول</option>
+                                    <option value="secondTest">الاختبار التاني</option>
+                                    <option value="thirdTest">الاختبار الثالث</option>
+                                    <option value="fourthTest">الاختبار الرابع</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -92,8 +103,8 @@
         function createreceipt() {
             let data = {
                 student_id: document.getElementById('student_id').value,
-                test_receipt: document.getElementById('test_receipt').checked,
-                signals_receipt: document.getElementById('signals_receipt').checked,
+                test_receipt: document.getElementById('test_receipt').value,
+                signals_receipt: document.getElementById('signals_receipt').value,
                 program_receipt: document.getElementById('program_receipt').checked,
                 registration_receipt: document.getElementById('registration_receipt').checked,
             };
@@ -101,8 +112,8 @@
                 .then(function(response) {
                     showMessage('success', response.data.message);
                     document.getElementById('student_id').value = '';
-                    document.getElementById('test_receipt').checked = false;
-                    document.getElementById('signals_receipt').checked = false;
+                    document.getElementById('test_receipt').value = '';
+                    document.getElementById('signals_receipt').value = '';
                     document.getElementById('program_receipt').checked = false;
                     document.getElementById('registration_receipt').checked = false;
                 })

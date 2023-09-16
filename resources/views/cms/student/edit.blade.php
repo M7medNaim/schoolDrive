@@ -155,7 +155,15 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                            <div class="col-6">
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input type="checkbox" class="form-check-input" id="student_status" @if($student->student_status == 'active') checked @endif>
+                                        <label class="form-check-label" for="student_status">حالة الطالب</label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
                         <div class="text-end">
                             <button class="btn btn-primary waves-effect waves-light"
                                 onclick="editstudent('{{ $student->id }}')" type="button">تعديل</button>
@@ -183,6 +191,7 @@
                 application: document.getElementById('application').value,
                 result: document.getElementById('result').value,
                 license_system: document.getElementById('license_system').value,
+                student_status: document.getElementById('student_status').checked ? 'active' : 'inactive',
             };
 
             data._method = 'PUT';

@@ -53,17 +53,29 @@
                                 @endif
                             </td>
                             <td>
-                                @if ($receipt->signals_receipt == 1)
-                                <span class="text-success">تم الدفع</span>
-                                @elseif ($receipt->signals_receipt == 0)
-                                <span class="text-danger">لم يتم الدفع</span>
+                                @if ($receipt->signals_receipt == 'firstSignal')
+                                <span class="text-success">الوصل الاول</span>
+                                @elseif ($receipt->signals_receipt == 'secondSignal')
+                                <span class="text-danger">الوصل التاني</span>
+                                @elseif ($receipt->signals_receipt == 'thirdSignal')
+                                <span class="text-danger">الوصل التالت</span>
+                                @elseif ($receipt->signals_receipt == 'fourthSignal')
+                                <span class="text-danger">الوصل الرابع</span>
+                                @else
+                                <span class="text-danger">لم يتم دفع اي وصل</span>
                                 @endif
                             </td>
                             <td>
-                                @if ($receipt->test_receipt == 1)
-                                <span class="text-success">تم الدفع</span>
-                                @elseif ($receipt->test_receipt == 0)
-                                <span class="text-danger">لم يتم الدفع</span>
+                                @if ($receipt->test_receipt == 'firstTest')
+                                <span class="text-success">الاختبار الاول</span>
+                                @elseif ($receipt->test_receipt == 'secondTest')
+                                <span class="text-danger">الاختبار التاني</span>
+                                @elseif ($receipt->test_receipt == 'thirdTest')
+                                <span class="text-danger">الاختبار الثالث</span>
+                                @elseif ($receipt->test_receipt == 'fourthTest')
+                                <span class="text-danger">الاختبار الرابع</span>
+                                @else 
+                                <span class="text-danger">لم يتم دفع أي وصل</span>
                                 @endif
                             </td>
                             <td>

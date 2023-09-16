@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="utf-8" />
@@ -18,6 +18,12 @@
     <!-- icons -->
     <link href="{{ asset('cms/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset('cms/build/toastr.min.css') }}">
+    <style>
+        .form-check .form-check-input {
+            float: none;
+            margin-left: 0;
+        }
+    </style>
 </head>
 
 <body class="loading authentication-bg authentication-bg-pattern">
@@ -32,38 +38,40 @@
                             <img src="{{ asset('cms/assets/images/logo-dark.png') }}" alt="" height="22"
                                 class="mx-auto">
                         </a>
-                        <p class="text-muted mt-2 mb-4">Responsive Admin Dashboard</p>
+                        <p class="text-muted mt-2 mb-4">مدرسة الريفي لتعليم السياقة النظرة وقيادة السيارات
+                        </p>
 
                     </div>
                     <div class="card">
                         <div class="card-body p-4">
 
                             <div class="text-center mb-4">
-                                <h4 class="text-uppercase mt-0">Sign In</h4>
+                                <h4 class="text-uppercase mt-0">تسجيل الدخول</h4>
                             </div>
 
                             <form>
                                 <div class="mb-3">
-                                    <label for="emailaddress" class="form-label">Email address</label>
+                                    <label for="emailaddress" class="form-label">الايميل</label>
                                     <input class="form-control" type="email" id="email" required=""
-                                        placeholder="Enter your email">
+                                        placeholder="الايميل">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
+                                    <label for="password" class="form-label">كلمة المرور</label>
                                     <input class="form-control" type="password" required="" id="password"
-                                        placeholder="Enter your password">
+                                        placeholder="كلمة المرور ">
                                 </div>
 
                                 <div class="mb-3">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="remember" checked>
-                                        <label class="form-check-label" for="checkbox-signin">Remember me</label>
+                                        <input type="checkbox" class="form-check-input ms-1" id="remember" checked>
+                                        <label class="form-check-label" for="checkbox-signin">تذكرني</label>
                                     </div>
                                 </div>
 
                                 <div class="mb-3 d-grid text-center">
-                                    <button class="btn btn-primary" onclick="login()" type="button"> Log In </button>
+                                    <button class="btn btn-primary" onclick="login()" type="button"> تسجل دخول
+                                    </button>
                                 </div>
                             </form>
 
@@ -95,19 +103,20 @@
     <script src="{{ asset('cms/build/toastr.min.js') }}"></script>
 
     <script>
-        function login(){
+        function login() {
             axios.post('/cms/user/login', {
-                email : document.getElementById('email').value,
-                password :  document.getElementById('password').value,
-                remember : document.getElementById('remember').checked,
-            })
-            .then(function (response) {
-                toastr.success("تم تسجيل الدخول بنجاح");
-                window.location.href = '/cms/home'
-            })
-            .catch(function (error) {
-                toastr.error("هناك خطأ في كلمة المرور أو اسم المستخدم");
-            })
+                    email: document.getElementById('email').value,
+                    password: document.getElementById('password').value,
+                    remember: document.getElementById('remember').checked,
+                })
+                .then(function(response) {
+                    toastr.success("تم تسجيل الدخول بنجاح");
+                    window.location.href = '/cms/home'
+                })
+                .catch(function(error) {
+                    toastr.error("هناك خطأ في كلمة المرور أو اسم المستخدم");
+                    
+                })
         }
     </script>
 

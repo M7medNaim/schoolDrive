@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use App\Models\Carexpense;
+use App\Notifications\Car as NotificationsCar;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ class CarController extends Controller
      */
     public function index()
     {
+
         $cars = Car::all();
         return response()->view('cms.car.index', compact('cars'));
     }

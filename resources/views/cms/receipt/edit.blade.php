@@ -48,18 +48,28 @@
                         </div>
                         <div class="col-3">
                             {{-- signals_receipt --}}
-                            <div class="form-check mb-2 form-check-success">
-                                <input class="form-check-input" type="checkbox" value="1" id="signals_receipt"
-                                    @if ($receipt->signals_receipt == 1) checked @endif>
-                                <label class="form-check-label" for="signals_receipt">وصل الاشارات</label>
+                            <div class="mb-3">
+                                <label for="signals_receipt" class="form-label">وصل الاشارات:</label>
+                                <select id="signals_receipt" name="signals_receipt" class="form-select" required="">
+                                    <option value="notPay" {{ $receipt->signals_receipt === 'notPay' ? 'selected' : '' }}>لم يدفع</option> 
+                                    <option value="firstSignal" {{ $receipt->signals_receipt === 'firstSignal' ? 'selected' : '' }}>الاول</option> 
+                                    <option value="secondSignal" {{ $receipt->signals_receipt === 'secondSignal' ? 'selected' : '' }}>التاني</option>
+                                    <option value="thirdSignal" {{ $receipt->signals_receipt === 'thirdSignal' ? 'selected' : '' }}>الثالث</option>
+                                    <option value="fourthSignal" {{ $receipt->signals_receipt === 'fourthSignal' ? 'selected' : '' }}>الرابع</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-3">
                             {{-- test_receipt --}}
-                            <div class="form-check mb-2 form-check-success">
-                                <input class="form-check-input" type="checkbox" value="1" id="test_receipt"
-                                    name="test_receipt" @if ($receipt->test_receipt == 1) checked @endif>
-                                <label class="form-check-label" for="test_receipt">وصل الاختبار</label>
+                            <div class="mb-3">
+                                <label for="test_receipt" class="form-label">وصل الاختبار:</label>
+                                <select id="test_receipt" name="test_receipt" class="form-select" required="">
+                                    <option value="notPay" {{ $receipt->test_receipt === 'notPay' ? 'selected' : '' }}>لم يدفع</option>
+                                    <option value="firstTest" {{ $receipt->test_receipt === 'firstTest' ? 'selected' : '' }}>الاختبار الاول</option>
+                                    <option value="secondTest" {{ $receipt->test_receipt === 'secondTest' ? 'selected' : '' }}>الاختبار التاني</option>
+                                    <option value="thirdTest" {{ $receipt->test_receipt === 'thirdTest' ? 'selected' : '' }}>الاختبار الثالث</option>
+                                    <option value="fourthTest" {{ $receipt->test_receipt === 'fourthTest' ? 'selected' : '' }}>الاختبار الرابع</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -84,8 +94,8 @@
         function editreceipt(id) {
             let data = {
                 student_id: document.getElementById('student_id').value,
-                test_receipt: document.getElementById('test_receipt').checked,
-                signals_receipt: document.getElementById('signals_receipt').checked,
+                test_receipt: document.getElementById('test_receipt').value,
+                signals_receipt: document.getElementById('signals_receipt').value,
                 program_receipt: document.getElementById('program_receipt').checked,
                 registration_receipt: document.getElementById('registration_receipt').checked,
             };

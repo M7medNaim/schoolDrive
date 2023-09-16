@@ -124,6 +124,14 @@
                                 </div>
                             </div>
                         </div>
+                          <div class="col-6">
+                            <div class="mb-3">
+                                <div class="form-check form-switch">
+                                    <input type="checkbox" class="form-check-input" id="student_status" checked>
+                                    <label class="form-check-label" for="customSwitch1">حالة الطالب</label>
+                                </div>
+                            </div>
+                            </div>
                         <div class="text-end">
                             <button class="btn btn-primary waves-effect waves-light" onclick="createStudent()"
                                 type="button">حفظ</button>
@@ -151,20 +159,22 @@
                 application: document.getElementById('application').value,
                 result: document.getElementById('result').value,
                 license_system: document.getElementById('license_system').value,
+                student_status: document.getElementById('student_status').checked ? 'active' : 'inactive',
             };
             axios.post('/cms/students', data)
                 .then(function(response) {
                     showMessage('success', response.data.message);
-                    let studentName = document.getElementById('student_name').value = '';
-                    let idNumber = document.getElementById('id_number').value = '';
-                    let phone = document.getElementById('phone').value = '';
-                    let dateOfBirth = document.getElementById('date_of_birth').value = '';
-                    let agreedAmount = document.getElementById('agreed_amount').value = '';
-                    let typeOfLicense = document.getElementById('type_of_license').value = '';
-                    let numberOfExamination = document.getElementById('number_of_examination').value = '';
-                    let application = document.getElementById('application').value = '';
-                    let result = document.getElementById('result').value = '';
-                    let licenseSystem = document.getElementById('license_system').value = '';
+                    document.getElementById('student_name').value = '';
+                    document.getElementById('id_number').value = '';
+                    document.getElementById('phone').value = '';
+                    document.getElementById('date_of_birth').value = '';
+                    document.getElementById('agreed_amount').value = '';
+                    document.getElementById('type_of_license').value = '';
+                    document.getElementById('number_of_examination').value = '';
+                    document.getElementById('application').value = '';
+                    document.getElementById('result').value = '';
+                    document.getElementById('license_system').value = '';
+
                 })
                 .catch(function(error) {
                     showMessage('error', error.response.data.message);

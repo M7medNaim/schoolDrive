@@ -94,6 +94,9 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
 
     // trainer
     Route::resource('trainers', TrainerController::class);
+    // notifications
+    Route::get('notifications', [HomeController::class ,'notifications'])->name('cms.notifications');
+    Route::get('getUnReadNotification', [HomeController::class ,'getUnReadNotification'])->name('cms.getUnReadNotification');
     // Logout
     Route::get('logout', [AuthController::class, 'logout'])->name('cms.logout');
 });

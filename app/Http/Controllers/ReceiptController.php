@@ -43,8 +43,8 @@ class ReceiptController extends Controller
             ], Response::HTTP_BAD_REQUEST);
         }
         $validator = Validator($request->all(), [
-            'test_receipt' => 'required',
-            'signals_receipt' => 'required',
+            'test_receipt' => 'required|string|in:notPay,firstTest,secondTest,thirdTest,fourthTest',
+            'signals_receipt' => 'required|string|in:notPay,firstSignal,secondSignal,thirdSignal,fourthSignal',
             'registration_receipt' => 'required',
             'program_receipt' => 'required',
             'student_id' => 'required|exists:students,id',
@@ -102,8 +102,8 @@ class ReceiptController extends Controller
     public function update(Request $request, Receipt $receipt)
     {
         $validator = Validator($request->all(), [
-            'test_receipt' => 'required',
-            'signals_receipt' => 'required',
+            'test_receipt' => 'required|string|in:notPay,firstTest,secondTest,thirdTest,fourthTest',
+            'signals_receipt' => 'required|string|in:notPay,firstSignal,secondSignal,thirdSignal,fourthSignal',
             'registration_receipt' => 'required',
             'program_receipt' => 'required',
             'student_id' => 'required|exists:students,id',

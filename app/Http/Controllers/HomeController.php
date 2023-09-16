@@ -25,6 +25,42 @@ class HomeController extends Controller
             $successPercentage = 0;
         }
         $successFraction = number_format($successPercentage, 2);
-        return response()->view('cms.home', compact('studentCount', 'trainerCount', 'employeeCount', 'carCount', 'successFraction' , 'passedStudents'));
+
+        // active student
+        $activeStudentsCount = Student::where('student_status', 'active')->count();
+
+        
+        return response()->view('cms.home', compact('studentCount', 'trainerCount', 'employeeCount', 'carCount', 'successFraction', 'passedStudents' ,'activeStudentsCount'));
+    }
+
+    // notifications
+    public function notifications()
+    {
+        $user = auth()->user();
+
+        $notifications = $user->notifications;
+
+        dispatch(function () use ($notifications) {
+            $notifications->markAsRead();
+        })->afterResponse();
+
+        return view('cms.notifications', compact('notifications'));
+    }
+
+
+    public function getUnReadNotification()
+    {
+        $user = auth()->user();
+
+        $notifications = $user->unreadNotifications;
+
+        // dispatch(function() use ($notifications) {
+        //     $notifications->markAsRead();
+        // })->afterResponse();
+
+
+        return response()->json([
+            'notifications' => $notifications,
+        ]);
     }
 }

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('test_receipt')->default(0);
-            $table->tinyInteger('signals_receipt')->default(0);
+            $table->enum('test_receipt', ['firstTest' , 'secondTest' , 'thirdTest' , 'fourthTest','notPay']);
+            $table->enum('signals_receipt', ['firstSignal' , 'secondSignal' , 'thirdSignal' , 'fourthSignal','notPay']);
             $table->tinyInteger('registration_receipt')->default(0);
             $table->tinyInteger('program_receipt')->default(0);
             $table->unsignedBigInteger('student_id'); 

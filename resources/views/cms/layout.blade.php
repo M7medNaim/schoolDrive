@@ -15,9 +15,22 @@
     <!-- App css -->
 
     <link href="{{ asset('cms/assets/css/app-rtl.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
+    <link rel="stylesheet" href="{{ asset('cms/build/toastr.min.css') }}">
 
     <!-- icons -->
     <link href="{{ asset('cms/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- google font --}}
+    {{-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, input::placeholder {
+            font-family: 'Cairo', sans-serif !important;
+        }
+        i, span {
+            font-family: "Font Awesome 5 Free" !important;
+        }
+    </style> --}}
     @yield('styles')
     @stack('style')
 
@@ -72,7 +85,8 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex align-items-start">
-                                            <img class="d-flex me-2 rounded-circle" src="{{ asset('cms/assets/images/users/user-2.jpg') }}"
+                                            <img class="d-flex me-2 rounded-circle"
+                                                src="{{ asset('cms/assets/images/users/user-2.jpg') }}"
                                                 alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Erwin E. Brown</h5>
@@ -84,7 +98,8 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="d-flex align-items-start">
-                                            <img class="d-flex me-2 rounded-circle" src="{{ asset('cms/assets/images/users/user-5.jpg') }}"
+                                            <img class="d-flex me-2 rounded-circle"
+                                                src="{{ asset('cms/assets/images/users/user-5.jpg') }}"
                                                 alt="Generic placeholder image" height="32">
                                             <div class="w-100">
                                                 <h5 class="m-0 font-14">Jacob Deo</h5>
@@ -140,7 +155,7 @@
                     </button>
                 </li>
 
-                <li>
+                <li class="w-100 d-flex ">
                     <h4 class="page-title-main">مدرسة الريفي لتعليم السياقة النظرة وقيادة السيارات </h4>
                 </li>
 
@@ -226,12 +241,36 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- axios js CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="{{ asset('cms/build/toastr.min.js') }}"></script>
     <script>
         let sideBarBtn = document.querySelector('#sideBarBtn');
-        sideBarBtn.onclick  =_=>{
+        sideBarBtn.onclick = _ => {
             let leftSideMenu = document.querySelector('.left-side-menu');
             leftSideMenu.style.display = "block";
         }
+    </script>
+    <script>
+        $(document).ready(function() {
+            setInterval(() => {
+                axios.get('/cms/getUnReadNotification')
+                    .then(function(response) {
+                        let notifications = response.data.notifications;
+                        notifications.forEach(element => {
+                            var notificationData = {
+                                title: element.data.title,
+                                body: element.data.body,
+                            };
+
+                            toastr.error(notificationData.body, notificationData.title, {
+                                progressBar: true,
+                                timeOut: 10000,
+                                extendedTimeOut: 1000,
+                                positionClass: "toast-top-left"
+                            });
+                        });
+                    });
+            }, 10800);
+        });
     </script>
     @yield('scripts')
     @stack('script')

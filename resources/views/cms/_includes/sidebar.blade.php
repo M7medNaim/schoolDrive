@@ -124,7 +124,7 @@
                                 <ul class="nav-second-level">
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-tasks"></i>
-                                        <a href="{{ route('receipts.index') }}">عرض الوصول</a>
+                                        <a href="{{ route('receipts.index') }}">عرض الوصولات</a>
                                     </li>
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-plus"></i>
@@ -317,6 +317,14 @@
                                 </ul>
                             </div>
                         </li>
+                        {{-- notification --}}
+                        <li>
+                            <a href="{{ route('cms.notifications') }}" class="text-danger">
+                                <i class="fas fa-bell me-1"></i>
+                                <span>عرض الاشعارات</span>
+                            </a>
+                        </li>
+                        <hr>
                         {{-- Logout --}}
                         <li>
                             <a href="{{ route('cms.logout') }}" class="text-danger">

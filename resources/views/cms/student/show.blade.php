@@ -155,6 +155,15 @@
                                     </select>
                                 </div>
                             </div>
+                             <div class="col-6">
+                                <div class="mb-3">
+                                    <label for="student_status" class="form-label">نشاط الطالب:</label>
+                                    <select id="student_status" name="student_status" class="form-select" disabled>
+                                        <option value="active" {{ $student->student_status === 'active' ? 'selected' : '' }}>نشط</option>
+                                        <option value="inactive" {{ $student->student_status === 'inactive' ? 'selected' : '' }}>غير نشط</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="mt-3 text-dark">المبلغ المتفق عليه : <span class="bg-danger p-1 text-white">{{ $student->agreed_amount }} شيكل</span></div>

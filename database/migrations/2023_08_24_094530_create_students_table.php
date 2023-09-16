@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('application', ['شفوي' , 'تحريري']);
             $table->enum('result', ['راسب' , 'ناجح' , 'لم يقدم']);
             $table->enum('license_system', ['بالدرس' , 'مقاولة' ]);
+            $table->enum('student_status', ['active' , 'inactive' ]);
             $table->integer('agreed_amount');
             $table->timestamps();
         });
