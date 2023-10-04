@@ -16,7 +16,7 @@
                     <h4 class="header-title">اضافة بيانات جديدة </h4>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="name" class="form-label">الاسم<span
                                         class="text-danger">*</span></label>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         {{-- phone --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="phone" class="form-label">رقم الجوال <span
                                         class="text-danger">*</span></label>

@@ -5,7 +5,7 @@
 
                 <!-- User box -->
                 <div class="user-box text-center">
-                    <img src="{{ asset('cms/assets/images/bg-pattern-2.png') }}" alt="user-img" title="Mat Helme"
+                    <img src="{{ asset('cms/logo.jpg') }}" alt="user-img" title="Mat Helme"
                         class="rounded-circle img-thumbnail avatar-md">
 
 
@@ -246,6 +246,29 @@
                                     <li class="d-flex align-items-center justify-content-start">
                                         <i class="fas fa-plus"></i>
                                         <a href="{{ route('schoolexpenses.create') }}">اضافة مصروف</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#dailyexpenses" data-bs-toggle="collapse">
+                                <i class=" fas fa-hand-holding-usd"></i>
+                                <span>المصاريف اليومية</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="dailyexpenses">
+                                <ul class="nav-second-level">
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-tasks"></i>
+                                        <a href="{{ route('dailyexpenses.indexInputs') }}">عرض الدخل</a>
+                                    </li>
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-tasks"></i>
+                                        <a href="{{ route('dailyexpenses.index') }}">عرض المصروفات</a>
+                                    </li>
+                                    <li class="d-flex align-items-center justify-content-start">
+                                        <i class="fas fa-plus"></i>
+                                        <a href="{{ route('dailyexpenses.create') }}">اضافة مصروف</a>
                                     </li>
                                 </ul>
                             </div>

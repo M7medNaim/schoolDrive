@@ -272,6 +272,35 @@
             }, 10800);
         });
     </script>
+
+    <script>
+        $(document).ready(function() {
+            setInterval(() => {
+                axios.get('/cms/getUnReadTrainerNotifications')
+                    .then(function(response) {
+                        let notifications = response.data.notifications;
+                        notifications.forEach(element => {
+                            var notificationData = {
+                                title: element.data.title,
+                                body: element.data.body,
+                            };
+
+                            toastr.error(notificationData.body, notificationData.title, {
+                                progressBar: true,
+                                timeOut: 10000,
+                                extendedTimeOut: 1000,
+                                positionClass: "toast-top-left"
+                            });
+                        });
+                    });
+            }, 300);
+        });
+    </script>
+
+
+
+
+
     @yield('scripts')
     @stack('script')
 

@@ -15,7 +15,7 @@
                 <div class="card-body">
                     <h4 class="header-title">اضافة ضريبة سنوية</h4>
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-11 col-md-5">
                             <div class="mb-3">
                                 <label for="taxe_year" class="form-label">سنة الضريبة <span
                                         class="text-danger">*</span></label>
@@ -23,7 +23,7 @@
                                     placeholder="سنة الضريبة" style="direction: rtl" class="form-control" id="taxe_year" />
                             </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-11 col-md-5">
                             <div class="mb-3">
                                 <label for="amount" class="form-label">المبلغ<span
                                         class="text-danger">*</span></label>

@@ -29,7 +29,7 @@
 
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             {{-- advance_date --}}
                             <div class="mb-3">
                                 <label for="advance_date" class="form-label">تاريخ السلفة<span
@@ -38,7 +38,7 @@
                                     placeholder="تاريخ السلفة" class="form-control" id="advance_date" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             {{-- amount --}}
                             <div class="mb-3">
                                 <label for="amount" class="form-label">المبلغ<span

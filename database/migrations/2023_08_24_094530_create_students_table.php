@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('license_system', ['بالدرس' , 'مقاولة' ]);
             $table->enum('student_status', ['active' , 'inactive' ]);
             $table->integer('agreed_amount');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

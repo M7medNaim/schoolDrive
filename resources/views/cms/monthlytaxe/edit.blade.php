@@ -16,7 +16,7 @@
                     <h4 class="header-title">تعديل ضريبة شهرية </h4>
 
                     <div class="row">
-                         <div class="col-6">
+                         <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <p class="mb-1 fw-bold">اختر سنة الضريبة :-</p>
                             <select id="annualtaxe_id" class="form-select" required="">
@@ -26,7 +26,7 @@
                             </select>
                         </div>
                     </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="amount" class="form-label">المبلغ <span
                                     class="text-danger">*</span></label>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         {{-- taxe_month --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="taxe_month" class="form-label">ضريبة شهر  <span
                                         class="text-danger">*</span></label>
@@ -45,7 +45,7 @@
                                     placeholder="ضريبة شهر" value="{{ $monthlytaxe->taxe_day_month }}"  style="direction: rtl" class="form-control" id="taxe_month" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="taxe_day_month" class="form-label"> تاريخ دفع الضريبة <span
                                         class="text-danger">*</span></label>

@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         {{-- payment_date --}}
                         <div class="mb-3">
                             <label for="payment_date" class="form-label">تاريخ الدفعة<span
@@ -37,7 +37,7 @@
                                 placeholder="تاريخ الدفعة" class="form-control" id="payment_date" />
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         {{-- amount --}}
                         <div class="mb-3">
                             <label for="amount" class="form-label">المبلغ<span

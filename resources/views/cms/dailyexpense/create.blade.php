@@ -1,6 +1,6 @@
 @extends('cms.layout')
-@section('title', 'اضافة ضريبة شهرية جديدة')
-@section('title2', 'اضافة ضريبة شهرية جديدة')
+@section('title', 'اضافة مصروف يومي جديد')
+@section('title2', 'اضافة مصروف يومي جديد')
 @section('styles')
 
 @endsection
@@ -13,18 +13,17 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="header-title">اضافة ضريبة شهرية جديدة</h4>
+                    <h4 class="header-title">اضافة مصروف يومي جديد</h4>
 
                     <div class="row">
                          <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <p class="mb-1 fw-bold">اختر سنة الضريبة :-</p>
-                            <select id="annualtaxe_id" class="form-select" required="">
-                                @foreach ($annualtaxes as $annualtaxe)
-                                    <option value="{{ $annualtaxe->id }}">{{ $annualtaxe->taxe_year }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                            <div class="mb-3">
+                                <label for="type" class="form-label">ادخل النوع :</label>
+                                <select id="type" class="form-select" required="">
+                                    <option value="inputs" selected>دخل</option>
+                                    <option value="expenses">مصروف</option>
+                                </select>
+                            </div>
                     </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
@@ -36,28 +35,28 @@
                         </div>
                     </div>
                     <div class="row">
-                        {{-- taxe_month --}}
+                        {{-- reason_exchange --}}
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
-                                <label for="taxe_month" class="form-label">ضريبة شهر  <span
+                                <label for="reason_exchange" class="form-label"> السبب <span
                                         class="text-danger">*</span></label>
-                                <input type="number" name="taxe_month" parsley-trigger="change" required
-                                    placeholder="ضريبة شهر"  style="direction: rtl" class="form-control" id="taxe_month" />
+                                <input type="text" name="reason_exchange" parsley-trigger="change" required
+                                    placeholder=" السبب "  class="form-control" id="reason_exchange" />
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="mb-3">
-                                <label for="taxe_day_month" class="form-label"> تاريخ دفع الضريبة <span
+                                <label for="date" class="form-label">التاريخ<span
                                         class="text-danger">*</span></label>
-                                <input type="text" name="taxe_day_month" parsley-trigger="change" required
-                                    placeholder="تاريخ  دفع الضريبة" class="form-control" id="taxe_day_month" />
+                                <input type="date" name="date" parsley-trigger="change" required
+                                    placeholder="التاريخ" class="form-control" id="date" />
                             </div>
                         </div>
                     </div>
                     <div class="text-end">
-                        <button class="btn btn-primary waves-effect waves-light" onclick="createmonthlytaxe()"
+                        <button class="btn btn-primary waves-effect waves-light" onclick="createdailyexpense()"
                             type="button">حفظ</button>
-                        <a href="{{ route('monthlytaxes.index') }}" class="btn btn-secondary waves-effect">الرجوع</a>
+                        {{-- <a href="{{ route('dailyexpenses.index') }}" class="btn btn-secondary waves-effect">الرجوع</a> --}}
                     </div>
                     </form>
                 </div>
@@ -69,20 +68,20 @@
 
 @section('scripts')
     <script>
-        function createmonthlytaxe() {
+        function createdailyexpense() {
         let data = {
-            annualtaxe_id: document.getElementById('annualtaxe_id').value,
+            type: document.getElementById('type').value,
             amount: document.getElementById('amount').value,
-            taxe_month: document.getElementById('taxe_month').value,
-            taxe_day_month: document.getElementById('taxe_day_month').value,
+            date: document.getElementById('date').value,
+            reason_exchange: document.getElementById('reason_exchange').value,
         };
-        axios.post('/cms/monthlytaxes', data)
+        axios.post('/cms/dailyexpenses', data)
             .then(function(response) {
                 showMessage('success', response.data.message);
-                document.getElementById('annualtaxe_id').value = '';
+                document.getElementById('type').value = '';
                 document.getElementById('amount').value = '';
-                document.getElementById('taxe_month').value = '';
-                document.getElementById('taxe_day_month').value = '';
+                document.getElementById('date').value = '';
+                document.getElementById('reason_exchange').value = '';
             })
             .catch(function(error) {
                 showMessage('error', error.response.data.message);
@@ -98,16 +97,6 @@
             timer: 1500
         });
     }
-
-        function showMessage(icon, message) {
-            Swal.fire({
-                position: 'center',
-                icon: icon,
-                title: message,
-                showConfirmButton: false,
-                timer: 1500
-            });
-        }
     </script>
 @endsection
 @push('script')

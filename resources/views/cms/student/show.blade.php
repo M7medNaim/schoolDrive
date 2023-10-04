@@ -164,6 +164,16 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center justify-content-center">
+                                    @if($student->image)
+                                    <img src="{{ asset('storage/' . $student->image) }}" alt="student-img" class="rounded-circle img-thumbnail" style="width:200px; height:200px" />
+                                @else
+                                    <img src="{{ asset('cms/assets/images/fakeImage.png') }}" alt="student-img" class="rounded-circle img-thumbnail" style="width:200px; height:200px" />
+                                @endif
+                                
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="mt-3 text-dark">المبلغ المتفق عليه : <span class="bg-danger p-1 text-white">{{ $student->agreed_amount }} شيكل</span></div>

@@ -30,34 +30,28 @@ class CheckCar extends Command
     public function handle()
     {
         $cars = Car::get();
-        
         $user = User::where('email', 'admin@app.com')->first();
-
+    
         foreach ($cars as $car) {
-
-            if ($car->license_expiry = Carbon::now()->addDays(7)) {
-
+            if ($car->license_expiry == Carbon::now()->addDays(7)) {
                 $data = [
                     'title' => 'انتهاء ترخيص',
                     'body' => 'باقي 7 أيام',
                     'type' => 'License Expiry',
+                    'type_car' => $car->type_car, 
                 ];
-
                 $user->notify(new NotificationsCar($data));
             }
-            
-            if ($car->Insurance_expiry = Carbon::now()->addDays(7)) {
-
+            if ($car->Insurance_expiry == Carbon::now()->addDays(7)) {
                 $data = [
                     'title' => 'انتهاء تأمين',
-                    'body' => 'باقي 7 ايام',
+                    'body' => 'باقي 7 أيام',
                     'type' => 'Insurance Expiry',
+                    'type_car' => $car->type_car, 
                 ];
-
                 $user->notify(new NotificationsCar($data));
             }
-
-
         }
     }
 }
+    

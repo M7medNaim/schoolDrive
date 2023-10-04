@@ -16,7 +16,7 @@
 
                     <form class="parsley-examples">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- name --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">الاسم<span
@@ -25,7 +25,7 @@
                                         placeholder="اسم الموظف" class="form-control" id="name" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- id_number --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهوية <span
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- phone --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهاتف <span
@@ -48,7 +48,7 @@
                                         style="direction: rtl" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- salary --}}
                                 <div class="mb-3">
                                     <label for="salary" class="form-label">الراتب<span

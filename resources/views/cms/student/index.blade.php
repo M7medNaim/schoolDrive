@@ -47,7 +47,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>اسم الطالب</th>
-                                <th>رقم الجوال</th>
+                                {{-- <th>رقم الجوال</th> --}}
                                 <th>نوع الرخصة</th>
                                 <th>نظام الرخصة</th>
                                 <th>عدد الفحوصات</th>
@@ -63,7 +63,7 @@
                                 <tr id="student_{{ $student->id }}">
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $student->name }}</td>
-                                    <td>{{ $student->phone }}</td>
+                                    {{-- <td>{{ $student->phone }}</td> --}}
                                     <td>
                                         {{ $student->type_of_license }}
                                     </td>
@@ -116,6 +116,10 @@
                                         <button class="text-danger ms-2 bg-transparent border-0 delete_btn" type="button"
                                             onclick="deletestudent('{{ $student->id }}')"><i
                                                 class=" fas fa-trash-alt"></i></button>
+                                                <a href="{{ route('student.exportWord', $student->id) }}" class="fs-5 mx-2 text-success">
+                                                    <i class="fas fa-file-download"></i></a>
+                                                <a href="{{ route('student.exportWordCard', $student->id) }}" class="fs-5 text-success">
+                                                    <i class="far fa-address-card"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

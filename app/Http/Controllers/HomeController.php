@@ -6,6 +6,7 @@ use App\Models\Car;
 use App\Models\Employee;
 use App\Models\Student;
 use App\Models\Trainer;
+use App\Notifications\Trainer as NotificationsTrainer;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -63,4 +64,30 @@ class HomeController extends Controller
             'notifications' => $notifications,
         ]);
     }
+
+    // trainerNotifications
+    public function trainerNotifications()
+    {
+        $user = auth()->user(); 
+    
+        $notifications = $user->notifications;
+    
+        dispatch(function () use ($notifications) {
+            $notifications->markAsRead();
+        })->afterResponse();
+    
+        return view('cms.notifications', compact('notifications'));
+    }
+    
+    public function getUnReadTrainerNotifications()
+    {
+        $user = auth()->user();
+    
+        $notifications = $user->unreadNotifications;
+    
+        return response()->json([
+            'notifications' => $notifications,
+        ]);
+    }
+    
 }

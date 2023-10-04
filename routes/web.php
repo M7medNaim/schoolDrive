@@ -5,6 +5,7 @@ use App\Http\Controllers\AnnualtaxeController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarexpenseController;
+use App\Http\Controllers\DailyexpenseController;
 use App\Http\Controllers\DatacontactController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
@@ -51,6 +52,9 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
     Route::get('students/{student}/lessons', [StudentController::class, 'viewLessons'])->name('students.view_lessons');
     Route::get('students/{student}/payments', [StudentController::class, 'viewPayments'])->name('students.view_payments');
     Route::resource('students', StudentController::class);
+    Route::get('exportWord/{studentId}', [StudentController::class, 'exportWord'])->name('student.exportWord');
+    Route::get('exportWordCard/{studentId}', [StudentController::class, 'exportWordCard'])->name('student.exportWordCard');
+
 
     // Lessons
     Route::resource('lessons', LessonController::class);
@@ -94,9 +98,18 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
 
     // trainer
     Route::resource('trainers', TrainerController::class);
-    // notifications
+    // dailyexpenses
+    Route::resource('dailyexpenses', DailyexpenseController::class);
+    Route::get('indexInputs', [DailyexpenseController::class ,'indexInputs'])->name('dailyexpenses.indexInputs');
+    // Delete All
+    Route::post('deleteByType', [DailyexpenseController::class, 'deleteByType'])->name('dailyexpenses.deleteByType');
+
+    // notificationsCar
     Route::get('notifications', [HomeController::class ,'notifications'])->name('cms.notifications');
     Route::get('getUnReadNotification', [HomeController::class ,'getUnReadNotification'])->name('cms.getUnReadNotification');
+    // notificationsTrainers
+    Route::get('/cms/getUnReadTrainerNotifications', [HomeController::class ,'getUnReadTrainerNotifications'])->name('cms.getUnReadTrainerNotifications');
+
     // Logout
     Route::get('logout', [AuthController::class, 'logout'])->name('cms.logout');
 });

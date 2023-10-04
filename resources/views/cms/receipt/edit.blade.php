@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             {{-- registration_receipt --}}
                             <div class="form-check mb-2 form-check-success">
                                 <input class="form-check-input" type="checkbox" value="1" id="registration_receipt"
@@ -38,7 +38,7 @@
                                 <label class="form-check-label" for="customckregistration_receipteck2">وصل التسجيل</label>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             {{-- program_receipt --}}
                             <div class="form-check mb-2 form-check-success">
                                 <input class="form-check-input" type="checkbox" value="1" id="program_receipt"
@@ -46,7 +46,7 @@
                                 <label class="form-check-label" for="program_receipt">وصل برنامج الاشارات</label>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             {{-- signals_receipt --}}
                             <div class="mb-3">
                                 <label for="signals_receipt" class="form-label">وصل الاشارات:</label>
@@ -59,7 +59,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-6 col-md-3">
                             {{-- test_receipt --}}
                             <div class="mb-3">
                                 <label for="test_receipt" class="form-label">وصل الاختبار:</label>

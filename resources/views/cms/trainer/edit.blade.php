@@ -16,7 +16,7 @@
                     <h4 class="header-title">تعديل مدرب  </h4>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="name" class="form-label">اسم المدرب <span
                                         class="text-danger">*</span></label>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         {{-- id_number --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="id_number" class="form-label">رقم هوية المدرب <span
                                         class="text-danger">*</span></label>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="row">
                         {{-- phone --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                           <div class="mb-3">
                               <label for="phone" class="form-label">رقم الجوال <span
                                       class="text-danger">*</span></label>
@@ -44,7 +44,7 @@
                                   placeholder="رقم الجوال" value="{{ $trainer->phone }}" style="direction: rtl" class="form-control" id="phone" />
                           </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-12 col-md-6">
                           <div class="mb-3">
                               <label for="training_number" class="form-label">رقم التدريب<span
                                       class="text-danger">*</span></label>
@@ -54,7 +54,7 @@
                       </div>
                   </div>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="mb-3">
                                 <label for="driving_license" class="form-label">رقم رخصة القيادة<span
                                         class="text-danger">*</span></label>
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         {{-- license_degree --}}
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="mb-3">
                                 <label for="license_degree" class="form-label">درجة الرخصة <span
                                         class="text-danger">*</span></label>
@@ -71,7 +71,7 @@
                                     placeholder="درجة الرخصة" value="{{ $trainer->license_degree }}" style="direction: rtl" class="form-control" id="license_degree" />
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-12 col-md-4">
                             <div class="mb-3">
                                 <label for="license_expiration_date" class="form-label">تاريخ انتهاء الرخصة <span
                                         class="text-danger">*</span></label>

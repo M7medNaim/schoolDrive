@@ -15,7 +15,7 @@
 
                     <form class="parsley-examples">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- name --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">الاسم<span
@@ -25,7 +25,7 @@
                                         class="form-control" id="student_name" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- id_number --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهوية <span
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- phone --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهاتف <span
@@ -48,7 +48,7 @@
                                         value="{{ old('phone') ?? $student->phone }}" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- date_of_birth --}}
                                 <div class="mb-3">
                                     <label for="date_of_birth" class="form-label">تاريخ الميلاد<span
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- agreed_amount --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label"> المبلغ المتفق عليه <span
@@ -72,7 +72,7 @@
                                         value="{{ old('agreed_amount') ?? $student->agreed_amount }}" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- type_of_license --}}
                                 <div class="mb-3">
                                     <label for="heard" class="form-label">نوع الرخصة:</label>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> عدد الفحوصات:</label>
                                     <select id="number_of_examination" class="form-select" required="">
@@ -110,7 +110,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> التطبيق :</label>
                                     <select id="application" class="form-select" required="">
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> النتيجة :</label>
                                     <select id="result" class="form-select" required="">
@@ -142,7 +142,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> نظام الرخصة :</label>
                                     <select id="license_system" class="form-select" required="">
@@ -155,15 +155,28 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="mb-3">
-                                    <div class="form-check form-switch">
-                                        <input type="checkbox" class="form-check-input" id="student_status" @if($student->student_status == 'active') checked @endif>
-                                        <label class="form-check-label" for="student_status">حالة الطالب</label>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    {{-- Image --}}
+                                    <div class="mb-3">
+                                        <label for="pass1" class="form-label">صورة الطالب<span
+                                                class="text-danger">*</span></label>
+                                        <input id="student_image" type="file" name="student_image"
+                                            placeholder="تحميل صورة الطالب" class="form-control" />
                                     </div>
                                 </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3">
+                                        <div class="form-check form-switch">
+                                            <input type="checkbox" class="form-check-input" id="student_status"
+                                                @if ($student->student_status == 'active') checked @endif>
+                                            <label class="form-check-label" for="student_status">حالة الطالب</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
+                        </div>
                         <div class="text-end">
                             <button class="btn btn-primary waves-effect waves-light"
                                 onclick="editstudent('{{ $student->id }}')" type="button">تعديل</button>
@@ -180,23 +193,42 @@
 @section('scripts')
     <script>
         function editstudent(id) {
-            let data = {
-                student_name: document.getElementById('student_name').value,
-                id_number: document.getElementById('id_number').value,
-                phone: document.getElementById('phone').value,
-                date_of_birth: document.getElementById('date_of_birth').value,
-                agreed_amount: document.getElementById('agreed_amount').value,
-                type_of_license: document.getElementById('type_of_license').value,
-                number_of_examination: document.getElementById('number_of_examination').value,
-                application: document.getElementById('application').value,
-                result: document.getElementById('result').value,
-                license_system: document.getElementById('license_system').value,
-                student_status: document.getElementById('student_status').checked ? 'active' : 'inactive',
-            };
+            let student_name = document.getElementById('student_name').value;
+            let id_number = document.getElementById('id_number').value;
+            let phone = document.getElementById('phone').value;
+            let date_of_birth = document.getElementById('date_of_birth').value;
+            let agreed_amount = document.getElementById('agreed_amount').value;
+            let type_of_license = document.getElementById('type_of_license').value;
+            let number_of_examination = document.getElementById('number_of_examination').value;
+            let application = document.getElementById('application').value;
+            let result = document.getElementById('result').value;
+            let license_system = document.getElementById('license_system').value;
+            let student_status = document.getElementById('student_status').checked ? 'active' : 'inactive';
+            let imageInput = document.getElementById('student_image');
+            let imageFile = imageInput.files[0];
+            let formData = new FormData();
+            formData.append('student_name', student_name);
+            formData.append('id_number', id_number);
+            formData.append('phone', phone);
+            formData.append('date_of_birth', date_of_birth);
+            formData.append('agreed_amount', agreed_amount);
+            formData.append('type_of_license', type_of_license);
+            formData.append('number_of_examination', number_of_examination);
+            formData.append('application', application);
+            formData.append('result', result);
+            formData.append('license_system', license_system);
+            formData.append('student_status', student_status);
+            if (imageFile) {
+                formData.append('student_image', imageFile);
+            }
 
-            data._method = 'PUT';
+            formData.append('_method', 'put');
 
-            axios.post(`/cms/students/${id}`, data)
+            axios.post(`/cms/students/${id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(function(response) {
                     window.location.href = '/cms/students';
                 }).catch(function(error) {

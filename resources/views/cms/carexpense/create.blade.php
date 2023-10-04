@@ -16,7 +16,7 @@
                     <h4 class="header-title">اضافة مصاريف جديدة</h4>
 
                     <div class="row">
-                         <div class="col-6">
+                         <div class="col-12 col-md-6">
                         <div class="mb-3">
                             <p class="mb-1 fw-bold">اختر نوع المركبة :-</p>
                             <select id="car_id" class="form-select" required="">
@@ -26,7 +26,7 @@
                             </select>
                         </div>
                     </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="amount" class="form-label">المبلغ <span
                                     class="text-danger">*</span></label>
@@ -37,7 +37,7 @@
                     </div>
                     <div class="row">
                         {{-- reason --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="reason" class="form-label">سبب الصرف  <span
                                         class="text-danger">*</span></label>
@@ -45,7 +45,7 @@
                                     placeholder="سبب الصرف"  class="form-control" id="reason" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="expense_date" class="form-label"> تاريخ الصرف <span
                                         class="text-danger">*</span></label>

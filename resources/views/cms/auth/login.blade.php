@@ -23,6 +23,11 @@
             float: none;
             margin-left: 0;
         }
+        body.authentication-bg {
+            background-size:cover !important;
+            background-repeat: no-repeat;
+            background-image: url({{ asset('cms/bgLogin.jpg') }});
+        }
     </style>
 </head>
 
@@ -32,21 +37,21 @@
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-md-8 col-lg-6 col-xl-4">
+                <div class="col-11 col-md-8 col-lg-6 col-xl-4">
                     <div class="text-center">
                         <a href="index.html">
-                            <img src="{{ asset('cms/assets/images/logo-dark.png') }}" alt="" height="22"
+                            <img src="{{ asset('cms/logo.jpg') }}" alt="" height="22"
                                 class="mx-auto">
                         </a>
-                        <p class="text-muted mt-2 mb-4">مدرسة الريفي لتعليم السياقة النظرة وقيادة السيارات
+                        <p class="text-black mt-2 mb-4">مدرسة الريفي لتعليم السياقة النظرة وقيادة السيارات
                         </p>
 
                     </div>
-                    <div class="card">
+                    <div class="card bg-success text-dark">
                         <div class="card-body p-4">
 
                             <div class="text-center mb-4">
-                                <h4 class="text-uppercase mt-0">تسجيل الدخول</h4>
+                                <h4 class="text-white mt-0">تسجيل الدخول</h4>
                             </div>
 
                             <form>
@@ -70,7 +75,7 @@
                                 </div>
 
                                 <div class="mb-3 d-grid text-center">
-                                    <button class="btn btn-primary" onclick="login()" type="button"> تسجل دخول
+                                    <button class="btn btn-danger" onclick="login()" type="button"> تسجل دخول
                                     </button>
                                 </div>
                             </form>

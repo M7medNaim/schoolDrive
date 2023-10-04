@@ -40,14 +40,21 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $notification->data['title'] }}</td>
                                     <td>{{ $notification->data['body'] }}</td>
-                                    <td>{{ $notification->data['type'] == 'License Expiry' ? 'انتهاء ترخيص' : 'انتهاء تأمين' }}</td>
+                                    <td>
+                                        @if ($notification->data['type'] == 'License Expiry')
+                                            انتهاء ترخيص
+                                        @elseif($notification->data['type'] == 'Insurance Expiry')
+                                            انتهاء تأمين
+                                            @else
+                                            انتهاء رخصة
+                                        @endif
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection

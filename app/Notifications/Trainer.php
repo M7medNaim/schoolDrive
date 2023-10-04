@@ -7,10 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class Car extends Notification
+class Trainer extends Notification
 {
     use Queueable;
-
     public $data;
 
     /**
@@ -53,7 +52,6 @@ class Car extends Notification
             'title' => $this->data['title'],
             'body' => $this->data['body'],
             'type' => $this->data['type'],
-            'type_car' => $this->data['type_car'],
         ];
     }
 }

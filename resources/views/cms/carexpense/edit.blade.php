@@ -16,7 +16,7 @@
                     <h4 class="header-title">تعديل مصاريف </h4>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="amount" class="form-label">المبلغ <span class="text-danger">*</span></label>
                                 <input type="number" name="amount" parsley-trigger="change" required placeholder="المبلغ"
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         {{-- schoolExpense_number --}}
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="reason" class="form-label">سبب الصرف <span
                                         class="text-danger">*</span></label>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="expense_date" class="form-label"> تاريخ الصرف <span
                                         class="text-danger">*</span></label>
@@ -45,7 +45,7 @@
                                     class="form-control" id="expense_date" />
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-12 col-md-6">
                             <div class="mb-3">
                                 <label for="note" class="form-label">تعديل ملاحظة <span
                                         class="text-danger">*</span></label>
