@@ -15,7 +15,7 @@
 
                     <form class="parsley-examples">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- name --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">الاسم<span
@@ -25,7 +25,7 @@
                                         class="form-control" id="student_name" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- id_number --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهوية <span
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- phone --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label">رقم الهاتف <span
@@ -48,7 +48,7 @@
                                         value="{{ old('phone') ?? $student->phone }}" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- date_of_birth --}}
                                 <div class="mb-3">
                                     <label for="date_of_birth" class="form-label">تاريخ الميلاد<span
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- agreed_amount --}}
                                 <div class="mb-3">
                                     <label for="emailAddress" class="form-label"> المبلغ المتفق عليه <span
@@ -72,7 +72,7 @@
                                         value="{{ old('agreed_amount') ?? $student->agreed_amount }}" />
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 {{-- type_of_license --}}
                                 <div class="mb-3">
                                     <label for="heard" class="form-label">نوع الرخصة:</label>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> عدد الفحوصات:</label>
                                     <select id="number_of_examination" class="form-select" required="" disabled>
@@ -110,7 +110,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> التطبيق :</label>
                                     <select id="application" class="form-select" required="" disabled>
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> النتيجة :</label>
                                     <select id="result" class="form-select" required="" disabled>
@@ -142,7 +142,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="heard" class="form-label"> نظام الرخصة :</label>
                                     <select id="license_system" class="form-select" required="" disabled>
@@ -155,7 +155,7 @@
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-6">
+                             <div class="col-12 col-md-6">
                                 <div class="mb-3">
                                     <label for="student_status" class="form-label">نشاط الطالب:</label>
                                     <select id="student_status" name="student_status" class="form-select" disabled>
@@ -164,7 +164,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12 col-md-6">
                                 <div class="d-flex align-items-center justify-content-center">
                                     @if($student->image)
                                     <img src="{{ asset('storage/' . $student->image) }}" alt="student-img" class="rounded-circle img-thumbnail" style="width:200px; height:200px" />

@@ -14,7 +14,6 @@ use App\Http\Controllers\MonthlytaxeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReceiptController;
 use App\Http\Controllers\SchoolExpenseController;
-use App\Http\Controllers\SchoolexpenseController as ControllersSchoolexpenseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\UserController;
@@ -31,10 +30,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('cms.auth.login');
-});
+// Route::get('/', function () {
+//     return view('cms.auth.login');
+// });
 
+// use PhpOffice\PhpWord\TemplateProcessor;
+
+// Route::get('/test-phpword', function () {
+//     try {
+//         $templateProcessor = new TemplateProcessor(public_path('demo.docx'));
+//       return 'PhpWord تعمل بشكل صحيح!';
+//   } catch (\Throwable $e) {
+//       return 'هناك مشكلة في مكتبة PhpWord: ' . $e->getMessage();
+//    }
+//});
 
 Route::prefix('cms/user')->middleware('guest:web')->group(function () {
     Route::get('login', [AuthController::class, 'showLogin'])->name('cms.login');
@@ -42,9 +51,9 @@ Route::prefix('cms/user')->middleware('guest:web')->group(function () {
 });
 
 Route::prefix('cms/')->middleware('auth:web')->group(function () {
-    // Hone
-    Route::get('home', [HomeController::class , 'index'])->name('cms.home');
-    
+    // Home
+    Route::get('home', [HomeController::class, 'index'])->name('cms.home');
+
     // Users
     Route::resource('users', UserController::class);
 
@@ -54,7 +63,6 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
     Route::resource('students', StudentController::class);
     Route::get('exportWord/{studentId}', [StudentController::class, 'exportWord'])->name('student.exportWord');
     Route::get('exportWordCard/{studentId}', [StudentController::class, 'exportWordCard'])->name('student.exportWordCard');
-
 
     // Lessons
     Route::resource('lessons', LessonController::class);
@@ -76,7 +84,6 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
     Route::get('cars/{car}/carexpenses', [CarController::class, 'viewcarexpenses'])->name('cars.viewcarexpenses');
     Route::resource('cars', CarController::class);
 
-
     // carexpenses
     Route::resource('carexpenses', CarexpenseController::class);
 
@@ -92,7 +99,7 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
 
     // Data School
     Route::view('dataSchool', 'cms/dataSchool')->name('cms.dataSchool');
-    
+
     // datacontact
     Route::resource('datacontacts', DatacontactController::class);
 
@@ -100,15 +107,15 @@ Route::prefix('cms/')->middleware('auth:web')->group(function () {
     Route::resource('trainers', TrainerController::class);
     // dailyexpenses
     Route::resource('dailyexpenses', DailyexpenseController::class);
-    Route::get('indexInputs', [DailyexpenseController::class ,'indexInputs'])->name('dailyexpenses.indexInputs');
+    Route::get('indexInputs', [DailyexpenseController::class, 'indexInputs'])->name('dailyexpenses.indexInputs');
     // Delete All
     Route::post('deleteByType', [DailyexpenseController::class, 'deleteByType'])->name('dailyexpenses.deleteByType');
 
     // notificationsCar
-    Route::get('notifications', [HomeController::class ,'notifications'])->name('cms.notifications');
-    Route::get('getUnReadNotification', [HomeController::class ,'getUnReadNotification'])->name('cms.getUnReadNotification');
+    Route::get('notifications', [HomeController::class, 'notifications'])->name('cms.notifications');
+    Route::get('getUnReadNotification', [HomeController::class, 'getUnReadNotification'])->name('cms.getUnReadNotification');
     // notificationsTrainers
-    Route::get('/cms/getUnReadTrainerNotifications', [HomeController::class ,'getUnReadTrainerNotifications'])->name('cms.getUnReadTrainerNotifications');
+    Route::get('/cms/getUnReadTrainerNotifications', [HomeController::class, 'getUnReadTrainerNotifications'])->name('cms.getUnReadTrainerNotifications');
 
     // Logout
     Route::get('logout', [AuthController::class, 'logout'])->name('cms.logout');
